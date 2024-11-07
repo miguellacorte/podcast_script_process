@@ -1,0 +1,12 @@
+{
+  "workflowName": "Podcast Script Generator",
+  "timestamp": "2024-10-24T20-11-10.383Z",
+  "results": {
+    "get_concept": {
+      "concept": "machine learning"
+    },
+    "generate_script": {
+      "error": "400 max_tokens is too large: 8100. This model supports at most 4096 completion tokens, whereas you provided 8100."
+    }
+  }
+}

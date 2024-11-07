@@ -1,0 +1,12 @@
+{
+  "workflowName": "Podcast Script Generator",
+  "timestamp": "2024-10-24T16-24-47.642Z",
+  "results": {
+    "get_concept": {
+      "concept": "machine learning"
+    },
+    "generate_script": {
+      "error": "429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors."
+    }
+  }
+}

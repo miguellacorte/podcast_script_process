@@ -1,0 +1,12 @@
+{
+  "workflowName": "Podcast Script Generator",
+  "timestamp": "2024-10-24T23-47-34.725Z",
+  "results": {
+    "get_concept": {
+      "concept": "machine learning"
+    },
+    "analyze_and_brainstorm": {
+      "error": "403 Country, region, or territory not supported"
+    }
+  }
+}

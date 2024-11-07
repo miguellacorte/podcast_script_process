@@ -1,0 +1,319 @@
+{
+  "workflowName": "Dailo Content Creation",
+  "timestamp": "2024-10-07T05-31-21.835Z",
+  "results": {
+    "get_course_concept": {
+      "concept": " - Concept:    - Format: An AI-generated learning podcast focused explaining the basic technological fundamentals that enable AI to work   - Structure: Conversation between an AI expert and a curious learner   - Style: Engaging, relatable, easy to understand. Consider creating as much sensory imagery as possible. Make the listener imagine!   - Content:    - Covers basic technological advances in an attempt to cover important concepts in AI, from its inception to current developments   - Organization:    - Chronological, following the progression of AI through the technological achievements that have allowed it to flourish   - Sections:    - Divided into major eras or paradigm shifts which lead to the advent of AI   - Chapters:    - Each focuses on a specific concept, breakthrough, or key development   - Storytelling:    - Use real-world examples, anecdotes, and implications   - Characters:    - Include stories of real researchers and pioneers in AI as well as any technological advancements relevant   - Goal:    - Make complex AI concepts accessible and interesting to a general audience"
+    },
+    "key_concepts": {
+      "concepts": [
+        {
+          "concept_title": "The Birth of AI: Turing Test and Early AI",
+          "key_concepts": [
+            "Turing Test",
+            "Early AI programs",
+            "Concept of Machine Learning"
+          ]
+        },
+        {
+          "concept_title": "The AI Winter: Challenges and Setbacks",
+          "key_concepts": [
+            "AI Winter",
+            "Funding issues",
+            "Technological limitations"
+          ]
+        },
+        {
+          "concept_title": "The Rise of Neural Networks: Understanding the Human Brain",
+          "key_concepts": [
+            "Neural Networks",
+            "Deep Learning",
+            "Backpropagation"
+          ]
+        },
+        {
+          "concept_title": "The Power of Data: Big Data and AI",
+          "key_concepts": [
+            "Big Data",
+            "Data Mining",
+            "Data-driven AI"
+          ]
+        },
+        {
+          "concept_title": "AI and Natural Language Processing: Machines that Understand Us",
+          "key_concepts": [
+            "Natural Language Processing",
+            "Chatbots",
+            "Sentiment Analysis"
+          ]
+        },
+        {
+          "concept_title": "AI in Vision and Perception: Seeing the World through AI",
+          "key_concepts": [
+            "Computer Vision",
+            "Image Recognition",
+            "Facial Recognition"
+          ]
+        },
+        {
+          "concept_title": "AI in Decision Making: From Chess to Self-driving Cars",
+          "key_concepts": [
+            "Game Theory",
+            "Decision Trees",
+            "Autonomous Vehicles"
+          ]
+        },
+        {
+          "concept_title": "Ethics and AI: The Moral Implications",
+          "key_concepts": [
+            "AI Ethics",
+            "Bias in AI",
+            "Privacy and Security"
+          ]
+        },
+        {
+          "concept_title": "The Future of AI: Quantum Computing and Beyond",
+          "key_concepts": [
+            "Quantum Computing",
+            "AI in Healthcare",
+            "AI in Climate Change"
+          ]
+        },
+        {
+          "concept_title": "Demystifying AI: Understanding the Hype vs Reality",
+          "key_concepts": [
+            "AI vs Human Intelligence",
+            "AI in Everyday Life",
+            "Future of Work with AI"
+          ]
+        }
+      ],
+      "systemPrompt": "You are an expert on course creation and pensum analysis who can determine the most important concepts that need to be taught once you are given a certain course concept. ",
+      "userPrompt": "Create a list of key concepts that need to be explained in a course based on the following points:  - Concept:    - Format: An AI-generated learning podcast focused explaining the basic technological fundamentals that enable AI to work   - Structure: Conversation between an AI expert and a curious learner   - Style: Engaging, relatable, easy to understand. Consider creating as much sensory imagery as possible. Make the listener imagine!   - Content:    - Covers basic technological advances in an attempt to cover important concepts in AI, from its inception to current developments   - Organization:    - Chronological, following the progression of AI through the technological achievements that have allowed it to flourish   - Sections:    - Divided into major eras or paradigm shifts which lead to the advent of AI   - Chapters:    - Each focuses on a specific concept, breakthrough, or key development   - Storytelling:    - Use real-world examples, anecdotes, and implications   - Characters:    - Include stories of real researchers and pioneers in AI as well as any technological advancements relevant   - Goal:    - Make complex AI concepts accessible and interesting to a general audience. Make sure that each concept is unique and not repeated, and that the list is not longer than 10 concepts. Ideally, these concepts carve out a storyline that covers the essentials what, how and why of AI.Return your response as a JSON object with 'concept_title' and 'key_concepts' fields."
+    },
+    "display_concepts": {
+      "Key Concepts": {
+        "concepts": [
+          {
+            "concept_title": "The Birth of AI: Turing Test and Early AI",
+            "key_concepts": [
+              "Turing Test",
+              "Early AI programs",
+              "Concept of Machine Learning"
+            ]
+          },
+          {
+            "concept_title": "The AI Winter: Challenges and Setbacks",
+            "key_concepts": [
+              "AI Winter",
+              "Funding issues",
+              "Technological limitations"
+            ]
+          },
+          {
+            "concept_title": "The Rise of Neural Networks: Understanding the Human Brain",
+            "key_concepts": [
+              "Neural Networks",
+              "Deep Learning",
+              "Backpropagation"
+            ]
+          },
+          {
+            "concept_title": "The Power of Data: Big Data and AI",
+            "key_concepts": [
+              "Big Data",
+              "Data Mining",
+              "Data-driven AI"
+            ]
+          },
+          {
+            "concept_title": "AI and Natural Language Processing: Machines that Understand Us",
+            "key_concepts": [
+              "Natural Language Processing",
+              "Chatbots",
+              "Sentiment Analysis"
+            ]
+          },
+          {
+            "concept_title": "AI in Vision and Perception: Seeing the World through AI",
+            "key_concepts": [
+              "Computer Vision",
+              "Image Recognition",
+              "Facial Recognition"
+            ]
+          },
+          {
+            "concept_title": "AI in Decision Making: From Chess to Self-driving Cars",
+            "key_concepts": [
+              "Game Theory",
+              "Decision Trees",
+              "Autonomous Vehicles"
+            ]
+          },
+          {
+            "concept_title": "Ethics and AI: The Moral Implications",
+            "key_concepts": [
+              "AI Ethics",
+              "Bias in AI",
+              "Privacy and Security"
+            ]
+          },
+          {
+            "concept_title": "The Future of AI: Quantum Computing and Beyond",
+            "key_concepts": [
+              "Quantum Computing",
+              "AI in Healthcare",
+              "AI in Climate Change"
+            ]
+          },
+          {
+            "concept_title": "Demystifying AI: Understanding the Hype vs Reality",
+            "key_concepts": [
+              "AI vs Human Intelligence",
+              "AI in Everyday Life",
+              "Future of Work with AI"
+            ]
+          }
+        ],
+        "systemPrompt": "You are an expert on course creation and pensum analysis who can determine the most important concepts that need to be taught once you are given a certain course concept. ",
+        "userPrompt": "Create a list of key concepts that need to be explained in a course based on the following points:  - Concept:    - Format: An AI-generated learning podcast focused explaining the basic technological fundamentals that enable AI to work   - Structure: Conversation between an AI expert and a curious learner   - Style: Engaging, relatable, easy to understand. Consider creating as much sensory imagery as possible. Make the listener imagine!   - Content:    - Covers basic technological advances in an attempt to cover important concepts in AI, from its inception to current developments   - Organization:    - Chronological, following the progression of AI through the technological achievements that have allowed it to flourish   - Sections:    - Divided into major eras or paradigm shifts which lead to the advent of AI   - Chapters:    - Each focuses on a specific concept, breakthrough, or key development   - Storytelling:    - Use real-world examples, anecdotes, and implications   - Characters:    - Include stories of real researchers and pioneers in AI as well as any technological advancements relevant   - Goal:    - Make complex AI concepts accessible and interesting to a general audience. Make sure that each concept is unique and not repeated, and that the list is not longer than 10 concepts. Ideally, these concepts carve out a storyline that covers the essentials what, how and why of AI.Return your response as a JSON object with 'concept_title' and 'key_concepts' fields."
+      }
+    },
+    "chapters_outline": {
+      "chapter_outline": [
+        {
+          "chapter_number": 1,
+          "chapter_title": "Introduction to Artificial Intelligence",
+          "key_concepts": [
+            "Definition of AI",
+            "History of AI",
+            "Applications of AI"
+          ],
+          "difficulty_level": "Easy"
+        },
+        {
+          "chapter_number": 2,
+          "chapter_title": "Understanding Labour Outsourcing",
+          "key_concepts": [
+            "Definition of Labour Outsourcing",
+            "Reasons for Labour Outsourcing",
+            "Implications of Labour Outsourcing"
+          ],
+          "difficulty_level": "Easy"
+        },
+        {
+          "chapter_number": 3,
+          "chapter_title": "The Intersection of AI and Labour Outsourcing",
+          "key_concepts": [
+            "AI in Outsourcing",
+            "Impacts on Labour Market",
+            "Case Studies"
+          ],
+          "difficulty_level": "Moderate"
+        },
+        {
+          "chapter_number": 4,
+          "chapter_title": "AI Technologies Used in Labour Outsourcing",
+          "key_concepts": [
+            "Machine Learning",
+            "Natural Language Processing",
+            "Robotics Process Automation"
+          ],
+          "difficulty_level": "Moderate"
+        },
+        {
+          "chapter_number": 5,
+          "chapter_title": "Ethical Considerations in AI and Labour Outsourcing",
+          "key_concepts": [
+            "AI and Job Displacement",
+            "Privacy Concerns",
+            "Bias in AI"
+          ],
+          "difficulty_level": "Hard"
+        },
+        {
+          "chapter_number": 6,
+          "chapter_title": "Future of AI and Labour Outsourcing",
+          "key_concepts": [
+            "Predictive Analysis",
+            "Evolving Job Market",
+            "Policy and Regulation"
+          ],
+          "difficulty_level": "Hard"
+        }
+      ],
+      "systemPrompt": "You are an expert in creating detailed chapter outlines for educational content. You will generate a comprehensive chapter outline based on a given course concept and its key concepts. Your response should be a JSON object with a 'chapter_outline' array.",
+      "userPrompt": "Using the course concept titled \"AI Through the Lens of Labour Outsourcing\" and the following key concepts: No key concepts provided, create an outline of chapters in logical order (from easiest to hardest). Ideally these chapters explain the key concepts in a way that is easy to understand and follow. The chapter's structure follow learning principles and guidelines like that of Bloom's Taxonomy. Each chapter should focus on one or more key concepts.  Return your response as a JSON object with a 'chapter_outline' array."
+    },
+    "display_chapter_outline": {
+      "Chapter Outline": [
+        {
+          "chapter_number": 1,
+          "chapter_title": "Introduction to Artificial Intelligence",
+          "key_concepts": [
+            "Definition of AI",
+            "History of AI",
+            "Applications of AI"
+          ],
+          "difficulty_level": "Easy"
+        },
+        {
+          "chapter_number": 2,
+          "chapter_title": "Understanding Labour Outsourcing",
+          "key_concepts": [
+            "Definition of Labour Outsourcing",
+            "Reasons for Labour Outsourcing",
+            "Implications of Labour Outsourcing"
+          ],
+          "difficulty_level": "Easy"
+        },
+        {
+          "chapter_number": 3,
+          "chapter_title": "The Intersection of AI and Labour Outsourcing",
+          "key_concepts": [
+            "AI in Outsourcing",
+            "Impacts on Labour Market",
+            "Case Studies"
+          ],
+          "difficulty_level": "Moderate"
+        },
+        {
+          "chapter_number": 4,
+          "chapter_title": "AI Technologies Used in Labour Outsourcing",
+          "key_concepts": [
+            "Machine Learning",
+            "Natural Language Processing",
+            "Robotics Process Automation"
+          ],
+          "difficulty_level": "Moderate"
+        },
+        {
+          "chapter_number": 5,
+          "chapter_title": "Ethical Considerations in AI and Labour Outsourcing",
+          "key_concepts": [
+            "AI and Job Displacement",
+            "Privacy Concerns",
+            "Bias in AI"
+          ],
+          "difficulty_level": "Hard"
+        },
+        {
+          "chapter_number": 6,
+          "chapter_title": "Future of AI and Labour Outsourcing",
+          "key_concepts": [
+            "Predictive Analysis",
+            "Evolving Job Market",
+            "Policy and Regulation"
+          ],
+          "difficulty_level": "Hard"
+        }
+      ]
+    },
+    "sample_chapter": {
+      "response": "{\n  \"sample_chapter\": \"Narrator: Welcome to another exciting episode of our learning podcast, where we delve into the world of Artificial Intelligence. In today's episode, our AI expert Ada and cool facts provider John will take us through the journey of one of the most significant breakthroughs in AI - Neural Networks.\n\nAda: Hello, listeners! Today we're going to explore the intriguing world of Neural Networks. But first, let's answer the 'What'. Neural Networks are a set of algorithms, designed to recognize underlying patterns, much like the way our human brain operates.\n\nJohn: That's right, Ada, and they've been around for a while, haven't they?\n\nAda: Absolutely, John. Neural Networks were conceptualized in the 1940s by Warren McCulloch and Walter Pitts. They wanted to build a machine that could mimic the human brain's ability to learn from experiences.\n\nNarrator: And that leads us to the 'How'. How do Neural Networks work?\n\nAda: Great question! Imagine a child learning to recognize a dog. First, the child sees a dog, and his brain processes the image - that's the input layer. Then, his brain analyzes the features - like four legs, fur, tail, etc., these are the hidden layers. Finally, his brain concludes that it's a dog - that's the output layer. That's essentially how a Neural Network operates.\n\nJohn: So it's like teaching a machine to learn from its experience, right?\n\nAda: Precisely! And it's this ability to learn and adapt that has made Neural Networks a game-changer in AI.\n\nNarrator: Which brings us to 'Why'. Why are Neural Networks so crucial?\n\nAda: Neural Networks have revolutionized how we solve complex problems. They've been used to predict stock market trends, recognize handwriting and even diagnose diseases! They've made AI more efficient and capable of handling vast amounts of data.\n\nJohn: And that's not all, right? I heard they also played a crucial role in the development of self-driving cars.\n\nAda: Indeed, John. Neural Networks are utilized in the image recognition systems of self-driving cars. They help the cars to understand their surroundings and make decisions accordingly.\n\nNarrator: Fascinating! It's clear that Neural Networks have played a pivotal role in shaping the AI landscape. Thank you, Ada and John, for this enlightening conversation.\n\nIn our next episode, we'll continue to explore more such intriguing concepts and breakthroughs in the world of AI. Stay curious, listeners, and keep learning!\"\n}",
+      "systemPrompt": "You are an expert in writing educational content in a conversational style. You will write a sample chapter for an AI course based on a given chapter outline and course concept. The chapter should be structured as a dialogue between an AI expert (Dr. Smith) and a curious learner (Alex), with clear speaker labels and proper spacing between dialogue parts.",
+      "userPrompt": "Based on the following course concept: \" - Concept:    - Format: An AI-generated learning podcast focused explaining the basic technological fundamentals that enable AI to work   - Structure: Conversation between an AI expert and a curious learner   - Style: Engaging, relatable, easy to understand. Consider creating as much sensory imagery as possible. Make the listener imagine!   - Content:    - Covers basic technological advances in an attempt to cover important concepts in AI, from its inception to current developments   - Organization:    - Chronological, following the progression of AI through the technological achievements that have allowed it to flourish   - Sections:    - Divided into major eras or paradigm shifts which lead to the advent of AI   - Chapters:    - Each focuses on a specific concept, breakthrough, or key development   - Storytelling:    - Use real-world examples, anecdotes, and implications   - Characters:    - Include stories of real researchers and pioneers in AI as well as any technological advancements relevant   - Goal:    - Make complex AI concepts accessible and interesting to a general audience\" and the chapter outline: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], write a detailed sample chapter in a conversational format. \n\n  Please follow these guidelines:\n  1. Structure the chapter as a dialogue between Ada (the AI expert) and John (the cool facts provider).\n  2. Use clear speaker labels for each dialogue part (e.g., \"Dr. Smith:\", \"Alex:\").\n  3. Include a brief narrator introduction at the beginning and a conclusion at the end.\n  4. Ensure there's a blank line between each speaker's part for readability.\n  5. Make the conversation engaging, educational, and easy to follow.\n  6. Cover the key points from the chapter outline in a logical order.\n  7. Make sure that that the chapter follows a What, How and Why structure: \n  7.1 Explain the \"What?\": Define what this concept means on a high level.\n  7.2 Explain the \"How?\": Include a practical application and example to illustrate each AI concept. Try to use as much sensory imagery as possible. For the examples, provide the problem it addressed and their solution how it works in detail. Walk the reader through how it works. Key Figures: Mention only the most pivotal individuals involved in significant AI discoveries)\n  7.3 Explain the \"Why?\": Explain the background the problems it addressed and the solutions it provided.\n8. Rememeber this is a chapter for a course that will be read through a TTS, so use a conversational tone and prepare words for this scenario.\n\n  Return your response as a JSON object with a 'sample_chapter' field containing the formatted chapter text."
+    },
+    "display_sample_chapter": {}
+  }
+}

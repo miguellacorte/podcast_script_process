@@ -1,0 +1,50 @@
+{
+  "name": "Podcast Script Generator",
+  "steps": {
+    "get_concept": {
+      "type": "user_input",
+      "prompt": "What concept would you like to generate a podcast script on? ",
+      "output_key": "concept",
+      "next": "analyze_and_brainstorm"
+    },
+    "analyze_and_brainstorm": {
+      "type": "prompt",
+      "prompt_file": "prompts/analyze_and_brainstorm_prompt.js",
+      "inputs": {
+        "input_text": "${get_concept.concept}"
+      },
+      "output_key": "brainstormed_ideas",
+      "next": "generate_script"
+    },
+    "generate_script": {
+      "type": "prompt",
+      "prompt_file": "prompts/podcast_script_prompt.js",
+      "inputs": {
+        "input_text": "${get_concept.concept}",
+        "brainstormed_ideas": "${analyze_and_brainstorm.brainstormed_ideas}"
+      },
+      "output_key": "podcast_script",
+      "next": "verify_length"
+    },
+    "verify_length": {
+      "type": "prompt",
+      "prompt_file": "prompts/verify_length_prompt.js",
+      "inputs": {
+        "script": "${generate_script.podcast_script}",
+        "minimum_words": 2500
+      },
+      "output_key": "verified_script",
+      "next": "humanize_dialogue"
+    },
+    "humanize_dialogue": {
+      "type": "prompt",
+      "prompt_file": "prompts/humanize_dialogue_prompt.js",
+      "inputs": {
+        "script": "${verify_length.verified_script}"
+      },
+      "output_key": "final_script",
+      "next": null
+    }
+  },
+  "initial_step": "get_concept"
+}

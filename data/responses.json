@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1727304876918,
+    "prompt": "travel_itinerary",
+    "response": "{\"destination\":\"Paris\",\"is_popular\":true,\"attractions\":[\"Eiffel Tower\",\"Louvre Museum\",\"Notre-Dame Cathedral\",\"Montmartre and the Basilica of the Sacré-Cœur\",\"Champs-Élysées and the Arc de Triomphe\"]}"
+  },
+  {
+    "id": 1727655483946,
+    "prompt": "travel_itinerary",
+    "response": "{\"destination\":\"Caracas\",\"is_popular\":false}"
+  },
+  {
+    "id": 1727655496119,
+    "prompt": "travel_itinerary",
+    "response": "{\"destination\":\"Paris\",\"is_popular\":true,\"attractions\":[\"Eiffel Tower\",\"Louvre Museum\",\"Notre-Dame Cathedral\",\"Champs-Élysées and Arc de Triomphe\",\"Montmartre and the Basilica of the Sacré-Cœur\"]}"
+  }
+]
