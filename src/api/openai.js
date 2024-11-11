@@ -1,10 +1,14 @@
 const OpenAI = require('openai');
 
+console.log('OPENAI_API_KEY:', process.env.OPENAI_API_KEY);
+
 if (!process.env.OPENAI_API_KEY) {
   throw new Error('OPENAI_API_KEY is not set in environment variables. Please check your .env.local file.');
 }
 
-const openai = new OpenAI(process.env.OPENAI_API_KEY);
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
 
 async function generateResponse(prompt, model, temperature, max_tokens) {
   try {

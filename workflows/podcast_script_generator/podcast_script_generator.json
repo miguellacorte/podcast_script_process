@@ -43,6 +43,27 @@
         "script": "${verify_length.verified_script}"
       },
       "output_key": "final_script",
+      "next": "add_fillers"
+    },
+    "add_fillers": {
+      "type": "prompt",
+      "prompt_file": "prompts/add_fillers_prompt.js",
+      "inputs": {
+        "script": "${humanize_dialogue.final_script}",
+        "fillers": {
+          "laughter": ["(laughs) (laughs)"],
+          "amazement": ["ooooooohhh, wow!", "whoa"],
+          "realization": ["ahh-ha!"],
+          "sympathy": ["awww"],
+          "contemplation": ["hmm, yeah", "hmm, yeah, I think so"],
+          "surprise": ["huh"],
+          "attentive": ["uh-huh", "Yeah, absolutely", "Yeah, I agree"],
+          "contentment": ["ahhh", "ahhh, yeah"],
+          "agreement": ["mhm"],
+          "alarm": ["Ugh, yikes", "ugh, really?"]
+        }
+      },
+      "output_key": "script_with_fillers",
       "next": null
     }
   },

@@ -1,5 +1,6 @@
-require('dotenv').config();
-require('dotenv').config({ path: '.env.local', override: true });
+console.log('Current working directory:', process.cwd());
+
+require('dotenv').config({ path: '.env.local' });
 
 if (!process.env.OPENAI_API_KEY) {
   console.error('Error: OPENAI_API_KEY is not set in environment variables.');
@@ -13,7 +14,7 @@ const fs = require('fs').promises;
 const OpenAI = require("openai");
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 const cors = require('cors');
 app.use(cors());

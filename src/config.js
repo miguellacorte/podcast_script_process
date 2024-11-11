@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '.env' });
+require('dotenv').config({ path: '.env.local' });
 
 module.exports = {
   openaiApiKey: process.env.OPENAI_API_KEY,

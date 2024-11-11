@@ -66,6 +66,6 @@ module.exports = (inputs) => {
     userPrompt,
     model: "gpt-4",
     temperature: 0.7, // Slightly higher temperature for more natural variations
-    max_tokens: 6900,
+    max_tokens: 6600,
   };
 };

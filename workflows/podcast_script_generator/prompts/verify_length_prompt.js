@@ -44,6 +44,6 @@ ${inputs.script}`;
     userPrompt,
     model: 'gpt-4',
     temperature: 0.6,
-    max_tokens: 7000
+    max_tokens: 6500
   };
 };
