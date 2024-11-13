@@ -50,6 +50,6 @@ Remember to:
     userPrompt,
     model: "gpt-4",
     temperature: 0.7,
-    max_tokens: 6750
+    max_tokens: 6300
   };
 }; 

@@ -4,22 +4,22 @@ module.exports = (inputs) => {
   # Steps to Follow:
   
   1. **Craft the Dialogue:**
-     Develop a natural, conversational flow between the host 1 (Alex) and host 2 (Jane). Incorporate:
+     Develop a natural, conversational flow between the host (Alex) and an invited guest. Incorporate:
      - Clear and **detailed explanations** of complex topics with examples, analogies, and stories to ensure depth
      - An engaging and lively tone to captivate listeners
      - A balance of information and entertainment, with moments for reflection and analysis
      - **IMPORTANT!: Back-and-forth interaction** between the host and guest to dive deeper into the subject
   
      Rules for the dialogue:
-     - The host (Alex) always initiates the conversation and questions host 2 (Jane)
-     - Alex is a very smart, curious, and friendly person. He should engage Jane with thoughtful, curious, and at times humorous remarks
-     - For each guest response, the host should **ask the other host for follow-up questions** or make comments to expand on the points raised
-     - The guest (Jane) should provide **detailed responses, at least 3-4 sentences long**, elaborating with real-world examples, personal experiences, and anecdotes
+     - The host (Alex) always initiates the conversation and questions the expert
+     - Alex is a curious, and friendly person. He wants to learn and understand the topic deeply, yet knows nothing about it. He should engage with the expert with thoughtful, curious, and at times humorous remarks
+     - For each expert response, the host should **ask follow-up questions** or make comments to expand on the points raised
+     - The expert should provide **detailed responses, at least 3-4 sentences long**, elaborating with real-world examples, personal experiences, and anecdotes
      - Incorporate natural speech patterns, including occasional verbal fillers, pauses for reflection, and light humor when appropriate
      - The hosts conclude the conversation with a **brief summary** of key points discussed, including reflections on any tangents or important side points that came up
      
   2. **Dynamic Interaction and Depth:**
-     - Ensure **dynamic back-and-forth flow** between the host and guest, with the host reacting to guest answers, adding follow-up questions, or exploring related tangents based on guest responses
+     - Ensure **dynamic back-and-forth flow** between the host and expert, with the host reacting to expert answers, adding follow-up questions, or exploring related tangents based on expert responses
      - Explore each topic in **multiple layers of depth** by encouraging both the host and guest to elaborate on key points
      - **Provide multiple examples** to clarify complex ideas, and add hypothetical scenarios to help the audience grasp more abstract concepts
      - The host should **explore tangents** based on the guest's responses to add more variety and depth to the conversation
@@ -53,7 +53,7 @@ module.exports = (inputs) => {
 
   const userPrompt = `Please generate a podcast script about ${inputs.input_text} using the following brainstormed ideas: ${inputs.brainstormed_ideas}. 
   
-Follow the steps and guidelines provided in the system prompt to create an engaging and informative podcast script. The script MUST be at least 2000 words long.
+Follow the steps and guidelines provided in the system prompt to create an engaging and informative podcast script. The script MUST be at least 2500 words long.
 
 IMPORTANT: Return the script in this format:
 {

@@ -9,7 +9,7 @@ module.exports = (inputs) => {
 
 Rules for expansion:
 - Maintain the same style and tone as the original script
-- Keep the same hosts (Alex and Jane)
+- Keep the same speakers (Alex and the expert)
 - Ensure any new content flows naturally with existing content
 - Follow the original format with clear speaker labels
 - Each line should still be under 200 characters
@@ -20,7 +20,6 @@ Rules for expansion:
 IMPORTANT: 
 - The final script MUST be at least ${inputs.minimum_words} words long
 - Do NOT remove or modify any existing [interrupting], [chuckles], or other expression markers
-- Preserve all parenthetical reactions like (ALEX: Mhm) or (JANE: Right)
 - Keep any existing interrupted speech marked with --
 
 Return the script in this format:
