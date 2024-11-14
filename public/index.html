@@ -167,6 +167,40 @@
         margin: 0;
         color: #2c3e50;
       }
+      .runs-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      .runs-table th {
+        text-align: left;
+        padding: 12px;
+        background-color: #2980b9;
+        color: white;
+        position: sticky;
+        top: 0;
+      }
+
+      .runs-table td {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .runs-table tr:hover {
+        background-color: #f5f6fa;
+      }
+
+      .runs-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .runs-table .center {
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -176,18 +210,123 @@
 
     <script>
       async function fetchRuns() {
+        try {
+          const response = await fetch("/runs");
+          const runs = await response.json();
+          const runList = document.getElementById("runList");
+          
+          // Sort runs by date (newest first)
+          runs.sort((a, b) => {
+            const dateA = new Date(a.split('_').pop().replace('.json', ''));
+            const dateB = new Date(b.split('_').pop().replace('.json', ''));
+            return dateB - dateA;
+          });
+
+          // Pagination settings
+          const runsPerPage = 5;
+          const totalPages = Math.ceil(runs.length / runsPerPage);
+          const currentPage = 1;
+          
+          // Create table structure with pagination controls
+          runList.innerHTML = `
+            <h2>Available Runs:</h2>
+            <table class="runs-table">
+              <thead>
+                <tr>
+                  <th class="center">#</th>
+                  <th>Date Created</th>
+                  <th>Workflow Title</th>
+                  <th class="center">Steps</th>
+                </tr>
+              </thead>
+              <tbody id="runsTableBody">
+              </tbody>
+            </table>
+            <div class="pagination" style="margin-top: 20px; text-align: center;">
+              <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
+              <span style="margin: 0 10px;">Page ${currentPage} of ${totalPages}</span>
+              <button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
+            </div>
+          `;
+
+          await displayRunsForPage(runs, currentPage, runsPerPage);
+        } catch (error) {
+          console.error('Error fetching runs:', error);
+          const runList = document.getElementById("runList");
+          runList.innerHTML = '<p style="color: red;">Error loading runs. Please try again later.</p>';
+        }
+      }
+
+      async function displayRunsForPage(runs, page, runsPerPage) {
+        const tableBody = document.getElementById("runsTableBody");
+        tableBody.innerHTML = ''; // Clear existing rows
+        
+        const startIndex = (page - 1) * runsPerPage;
+        const endIndex = Math.min(startIndex + runsPerPage, runs.length);
+        const pageRuns = runs.slice(startIndex, endIndex);
+
+        for (const [index, run] of pageRuns.entries()) {
+          // Fetch details for each run to get the step count
+          const detailsResponse = await fetch(`/run/${run}`);
+          const runData = await detailsResponse.json();
+          
+          // Count steps (excluding display_ steps)
+          const stepsCount = Object.keys(runData.results || {})
+            .filter(step => !step.startsWith('display_')).length;
+
+          // Parse the filename to extract date and workflow name
+          const parts = run.split('_');
+          const dateStr = parts[parts.length - 1].replace('.json', '');
+          
+          // Convert timestamp to Date object
+          const date = new Date(dateStr);
+          const formattedDate = date.toLocaleString();
+          
+          // Get workflow name by removing the date part
+          const workflowName = parts.slice(0, -1).join('_')
+            .replace(/_/g, ' ')
+            .replace(/\b\w/g, c => c.toUpperCase()); // Capitalize first letter of each word
+
+          // Create table row with corrected run number (starting from newest)
+          const runNumber = startIndex + index + 1;
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td class="center">${runNumber}</td>
+            <td>${formattedDate}</td>
+            <td><a href="#" onclick="fetchRunDetails('${run}')">${workflowName}</a></td>
+            <td class="center">${stepsCount}</td>
+          `;
+          
+          tableBody.appendChild(row);
+        }
+      }
+
+      async function changePage(newPage) {
         const response = await fetch("/runs");
         const runs = await response.json();
-        const runList = document.getElementById("runList");
-        runList.innerHTML =
-          "<h2>Available Runs:</h2><ul>" +
-          runs
-            .map(
-              (run) =>
-                `<li><a href="#" onclick="fetchRunDetails('${run}')">${run}</a></li>`
-            )
-            .join("") +
-          "</ul>";
+        
+        // Sort runs by date (newest first)
+        runs.sort((a, b) => {
+          const dateA = new Date(a.split('_').pop().replace('.json', ''));
+          const dateB = new Date(b.split('_').pop().replace('.json', ''));
+          return dateB - dateA;
+        });
+
+        const runsPerPage = 5;
+        const totalPages = Math.ceil(runs.length / runsPerPage);
+        
+        // Validate new page
+        if (newPage < 1 || newPage > totalPages) return;
+        
+        // Update pagination controls
+        const paginationDiv = document.querySelector('.pagination');
+        paginationDiv.innerHTML = `
+          <button onclick="changePage(${newPage - 1})" ${newPage === 1 ? 'disabled' : ''}>Previous</button>
+          <span style="margin: 0 10px;">Page ${newPage} of ${totalPages}</span>
+          <button onclick="changePage(${newPage + 1})" ${newPage === totalPages ? 'disabled' : ''}>Next</button>
+        `;
+        
+        await displayRunsForPage(runs, newPage, runsPerPage);
       }
 
       async function fetchRunDetails(runFile) {
