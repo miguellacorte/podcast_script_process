@@ -51,25 +51,65 @@ app.post('/format-text', async (req, res) => {
         const { text } = req.body;
         console.log('Received text to format:', text);
 
+        // First, try to parse if it's JSON
+        let scriptContent = text;
+        try {
+            const jsonContent = JSON.parse(text);
+            if (jsonContent.humanized_script) {
+                scriptContent = jsonContent.humanized_script;
+            } else if (jsonContent.podcast_script) {
+                scriptContent = jsonContent.podcast_script;
+            } else if (jsonContent.script_with_fillers) {
+                scriptContent = jsonContent.script_with_fillers;
+            } else if (jsonContent.verified_script) {
+                scriptContent = jsonContent.verified_script;
+            }
+        } catch (e) {
+            // Not JSON, use text as is
+            console.log('Not JSON content, using raw text');
+        }
+
         const response = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [
-                { role: "system", content: "You are a helpful assistant that formats text to be more readable. Add appropriate line breaks, indentation, and spacing to improve readability. If it's a list or outline, format it with proper indentation and bullet points or numbers. if the text is a script or dialogue, follow principles and conventions of the format you're given." },
-                { role: "user", content: `Please format the following text to be more readable:\n\n${text}` }
+                { 
+                    role: "system", 
+                    content: `You are a script formatting expert. Format the provided text with these rules:
+                        1. Add proper line breaks between speakers
+                        2. Add an empty line between different speakers' dialogues
+                        3. Keep speaker labels (ALEX: and Expert:) in bold or caps
+                        4. Preserve all existing formatting markers like (...) or [...]
+                        5. Maintain any existing emphasis (CAPS, italics)
+                        6. Format any lists or structured content with proper indentation
+                        7. Return the text in HTML format with appropriate tags
+                        8. Use <br> for line breaks and <p> for paragraphs
+                        9. Use <strong> for speaker names
+                        10. Preserve exact spacing for pauses (..................)`
+                },
+                { 
+                    role: "user", 
+                    content: `Please format this script for readability:\n\n${scriptContent}` 
+                }
             ],
         });
         
         let formattedText = response.choices[0].message.content;
-        console.log('Formatted text from OpenAI:', formattedText);
         
-        // Try to parse as JSON, but if it fails, just return the formatted text
-        try {
-            const jsonObject = JSON.parse(formattedText);
-            formattedText = JSON.stringify(jsonObject, null, 2);
-            console.log('Parsed and re-stringified as JSON');
-        } catch (error) {
-            console.log('Not valid JSON, returning formatted text as-is');
-        }
+        // Add CSS styling wrapper
+        formattedText = `
+            <div style="
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #f9f9f9;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            ">
+                ${formattedText}
+            </div>
+        `;
         
         res.json({ formattedText });
     } catch (error) {

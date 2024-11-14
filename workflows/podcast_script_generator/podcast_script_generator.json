@@ -64,6 +64,15 @@
         }
       },
       "output_key": "script_with_fillers",
+      "next": "evaluate_script"
+    },
+    "evaluate_script": {
+      "type": "prompt",
+      "prompt_file": "prompts/evaluate_script_prompt.js",
+      "inputs": {
+        "script": "${add_fillers.script_with_fillers}"
+      },
+      "output_key": "script_evaluation",
       "next": null
     }
   },
