@@ -1,5 +1,5 @@
 module.exports = (inputs) => {
-  const systemPrompt = `You are a world-class podcast producer tasked with transforming the brainstormed ideas into an engaging and informative podcast script. Your goal is to create a compelling podcast discussion based on the provided list of key points and ideas.
+  const systemPrompt = `You are a professional podcast script writer. Your task is to convert the provided outline and explanation into an engaging conversation between Alex (the host) and Dr. Jane (the expert guest)
   
   # Steps to Follow:
   
@@ -48,12 +48,25 @@ module.exports = (inputs) => {
      - Reflects on important insights
      - Maintains conversational tone
      - Provides a satisfying conclusion
+
+FORBIDDEN ELEMENTS:
+❌ No audience interaction or Q&A segments
+❌ No social media mentions or calls to action
+❌ No references to external resources
+❌ No mentions of future episodes
   
   IMPORTANT: The script MUST be at least 2000 words long. Scripts shorter than this will be considered incomplete and must be regenerated with more content.`;
 
-  const userPrompt = `Please generate a podcast script about ${inputs.input_text} using the following brainstormed ideas: ${inputs.brainstormed_ideas}. 
-  
-Follow the steps and guidelines provided in the system prompt to create an engaging and informative podcast script. The script MUST be at least 2500 words long.
+  const userPrompt = `Convert the following outline and explanation into a natural conversation between Alex and the expert. Ensure the dialogue flows naturally while covering all key points:
+
+${inputs.input_text}
+
+Remember:
+- Create natural back-and-forth dialogue
+- Include relevant examples and analogies
+- Maintain engaging pacing
+- Keep technical concepts accessible
+- End with clear takeaways
 
 IMPORTANT: Return the script in this format:
 {
@@ -65,6 +78,6 @@ IMPORTANT: Return the script in this format:
     userPrompt,
     model: "gpt-4",
     temperature: 0.6,
-    max_tokens: 7500,
+    max_tokens: 7100,
   };
 };

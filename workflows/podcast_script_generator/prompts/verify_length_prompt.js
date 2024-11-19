@@ -1,48 +1,64 @@
 module.exports = (inputs) => {
-  const systemPrompt = `You are a script validator and expander. Your task is to:
-1. Count the words in the provided script
-2. If the word count is less than ${inputs.minimum_words}, expand the script by:
-   - Adding more detailed discussion points
-   - Including additional examples and case studies
-   - Expanding the dialogue with follow-up questions
-   - Adding more back-and-forth interaction between hosts
+  const systemPrompt = `You are a script validator and expander. Your task is to ensure the script meets the minimum length requirement of ${inputs.minimum_words} words, with a target length of ${inputs.target_words} words.
 
-Rules for expansion:
-- Maintain the same style and tone as the original script
-- Keep the same speakers (Alex and the expert)
-- Ensure any new content flows naturally with existing content
-- Follow the original format with clear speaker labels
-- Each line should still be under 200 characters
-- Do not add any social media mentions or calls to action
-- Keep the content focused on the main topic
-- Preserve any existing interruptions, interjections, or expression markers
+If the script is too short, you MUST expand it using these strategies:
+1. Detailed Explanations
+   - Add in-depth explanations for technical concepts
+   - Include real-world examples for each major point
+   - Expand analogies with more detail
+   
+2. Additional Discussion Points
+   - Add follow-up questions from Alex
+   - Include detailed responses from the expert
+   - Create natural back-and-forth dialogue about each topic
+   
+3. Case Studies and Examples
+   - Add specific industry examples
+   - Include practical applications
+   - Discuss potential challenges and solutions
+   
+4. Topic Deep Dives
+   - Expand each major topic with subtopics
+   - Include more technical details with accessible explanations
+   - Add relevant historical context or future implications
 
-IMPORTANT: 
-- The final script MUST be at least ${inputs.minimum_words} words long
-- Do NOT remove or modify any existing [interrupting], [chuckles], or other expression markers
+EXPANSION REQUIREMENTS:
+- Each major topic should have at least 3-4 exchanges between speakers
+- Include at least 2-3 detailed examples per main point
+- Add natural transitions between topics
+- Ensure technical concepts have both explanation and practical example
+- Include brief reactions and acknowledgments between major points
+
+FORMAT RULES:
+- Maintain speaker labels (Alex: and Dr. Chen:)
+- Keep lines under 200 characters
+- Preserve all existing [interruptions], [chuckles], and expression markers
 - Keep any existing interrupted speech marked with --
 
-Return the script in this format:
+CRITICAL: The final script MUST be AT LEAST ${inputs.minimum_words} words long, aiming for ${inputs.target_words} words.
+
+Return in format:
 {
-  "verified_script": "YOUR_VERIFIED_OR_EXPANDED_SCRIPT_HERE"
+  "verified_script": "YOUR_EXPANDED_SCRIPT_HERE"
 }`;
 
-  const userPrompt = `Please verify and if needed expand this script to ensure it meets the minimum length of ${inputs.minimum_words} words. 
+  const userPrompt = `Please verify and expand this script to meet the minimum length of ${inputs.minimum_words} words, targeting ${inputs.target_words} words.
 
-IMPORTANT:
-- Preserve all existing interruptions and interjections
-- Keep any expression markers like [chuckles] or [thoughtful pause]
-- Maintain any parenthetical reactions
-- If expanding, add similar natural elements to new content
+Current script:
+${inputs.script}
 
-Script to verify:
-${inputs.script}`;
+REQUIREMENTS:
+- Significantly expand each topic with more detail and examples
+- Add natural dialogue and reactions
+- Maintain consistent style and tone
+- Keep all existing expression markers and interruptions
+- Add similar natural elements to new content`;
 
   return {
     systemPrompt,
     userPrompt,
     model: 'gpt-4',
-    temperature: 0.6,
-    max_tokens: 6500
+    temperature: 0.7,
+    max_tokens: 7500
   };
 };

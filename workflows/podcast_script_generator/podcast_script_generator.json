@@ -3,25 +3,15 @@
   "steps": {
     "get_concept": {
       "type": "user_input",
-      "prompt": "What concept would you like to generate a podcast script on? ",
+      "prompt": "Please provide the concept outline and explanation for the podcast: ",
       "output_key": "concept",
-      "next": "analyze_and_brainstorm"
-    },
-    "analyze_and_brainstorm": {
-      "type": "prompt",
-      "prompt_file": "prompts/analyze_and_brainstorm_prompt.js",
-      "inputs": {
-        "input_text": "${get_concept.concept}"
-      },
-      "output_key": "brainstormed_ideas",
       "next": "generate_script"
     },
     "generate_script": {
       "type": "prompt",
       "prompt_file": "prompts/podcast_script_prompt.js",
       "inputs": {
-        "input_text": "${get_concept.concept}",
-        "brainstormed_ideas": "${analyze_and_brainstorm.brainstormed_ideas}"
+        "input_text": "${get_concept.concept}"
       },
       "output_key": "podcast_script",
       "next": "verify_length"
@@ -31,7 +21,8 @@
       "prompt_file": "prompts/verify_length_prompt.js",
       "inputs": {
         "script": "${generate_script.podcast_script}",
-        "minimum_words": 2500
+        "minimum_words": 2500,
+        "target_words": 3000
       },
       "output_key": "verified_script",
       "next": "humanize_dialogue"
